@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS price_ml_row(
+    id INT AUTO_INCREMENT,
+    code CHAR(20),
+    name VARCHAR(256),
+    guarantee CHAR(5),
+    article CHAR(30),
+    store CHAR(30),
+    store2 CHAR(30),
+    store3 CHAR(30),
+    cost DECIMAL(15,4),
+    price_id INT,
+    group_id INT,
+    is_group TINYINT(1),
+    level INT NOT NULL,
+    lft INT NOT NULL,
+    rgt INT NOT NULL,
+    PRIMARY KEY (id),
+    KEY `price_id,rgt,lft` (`price_id`,`rgt`,`lft`),
+    FOREIGN KEY(price_id) REFERENCES price_ml(id)
+) ENGINE InnoDB DEFAULT CHARACTER SET utf8

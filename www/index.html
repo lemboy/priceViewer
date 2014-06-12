@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>List of PriceLists</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.10.4.custom.css" />
+    <link rel="stylesheet" type="text/css" href="css/ui.jqgrid.css" />
+    <link rel="stylesheet" type="text/css" href="css/ui.my.css" />
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/i18n/grid.locale-ru.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $.jgrid.no_legacy_api = true;
+        $.jgrid.useJSON = true;
+    </script>
+    <script src="js/jquery.jqGrid.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        jQuery(document).ready(function () {
+            jQuery("#list4").jqGrid({
+				url:'getPriceList.php',
+				datatype: 'json',
+				colNames:['No','Дата', 'Курс грн', 'Курс руб', 'Загружен'],
+				colModel:[
+					{name:'id',index:'id', width:1, hidden: true},
+					{name:'price_date',index:'price_date', width:200, align: "center", edittype:'select', 
+						formatter:'showlink', formatoptions:{baseLinkUrl:'price.html'}},
+					{name:'rate_uah',index:'rate_uah', width:150, align:"right"},
+					{name:'rate_rub',index:'rate_rub', width:150, align:"right"},
+					{name:'load_date',index:'load_date', width:200, align: "center"}
+				],
+				rowNum:50,
+				rowList:[10,50,100],
+				pager: '#pager2',
+				sortname: 'price_date',
+				viewrecords: true,
+				sortorder: "desc",
+				width: "100%",
+				height: "100%",
+				caption: "Список прайсов"
+            });
+			jQuery("#list4").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false});
+        });
+    </script>
+</head>
+<body>
+	<form action="goods.html" method="get">
+		<input type="text"  name="code"/>
+		<input type="submit" value="Поиск по коду"/>
+	</form>
+	<br>
+    <table id="list4"></table>
+    <div id="pager2"></div>
+</body>
+</html>

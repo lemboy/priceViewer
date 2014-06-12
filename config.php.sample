@@ -1,0 +1,13 @@
+<?php
+$db_host = "localhost";
+$db_name = 'sampleDbName';
+$db_user = 'sampleDbUser';
+$db_pswd = 'sampleDbPassword';
+
+$scheme_dir = './scheme';
+
+$mail_host = '{imap.gmail.com:993/imap/ssl}INBOX';
+$mail_user = 'sampleMailBox@gmail.com';
+$mail_pswd = 'sampleMailPassword';
+
+?>

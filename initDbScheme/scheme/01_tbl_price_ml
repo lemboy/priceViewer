@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS price_ml(
+    id INT NOT NULL AUTO_INCREMENT,
+    price_date DATE NOT NULL,
+    rate_uah DECIMAL(10,4),
+    rate_rub DECIMAL(10,4),
+    rate_uah_noncash DECIMAL(10,4),
+    rate_rub_noncash DECIMAL(10,4),
+    load_date DATETIME NOT NULL,
+    PRIMARY KEY (id)
+--,
+--    UNIQUE KEY (price_date)
+) ENGINE InnoDB
